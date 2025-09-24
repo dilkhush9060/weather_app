@@ -1,7 +1,7 @@
 import { InfoCard } from "./InfoCard";
 import { StatusBar } from "expo-status-bar";
 import { ActivityIndicator, Text, View, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import axios from "axios";
@@ -121,16 +121,30 @@ export default function App() {
   return (
     <>
       <StatusBar style="inverted" />
-      <View className="flex-1 justify-center bg-[#212121] p-6">
+      <View className="flex-1 justify-center bg-[#212121] p-6 gap-5">
+        {/* Main Text  */}
+        <Text className="text-white text-center text-5xl font-bold">
+          Daily Weather
+        </Text>
         {/* Main card */}
         <View className="bg-[#323233] rounded-3xl p-8 items-center w-full flex-row justify-between h-72">
           <View className="flex-col items-start justify-between h-full">
             <Text className="text-white text-2xl font-semibold mb-4">
               {weather.name}, {weather.sys.country}
             </Text>
-            <Text className="text-white text-7xl font-semibold mb-4">
-              {Math.round(weather.main.temp)}°C
-            </Text>
+            <View className="flex-row gap-5 items-center">
+              <Text className="text-white text-7xl font-semibold mb-4">
+                {Math.round(weather.main.temp)}°C
+              </Text>
+              <TouchableOpacity>
+                <AntDesign
+                  name="reload"
+                  size={20}
+                  color="#ffebd3"
+                  onPress={getLocationAndWeather}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
           <View className="flex-col items-center justify-center">
             <Ionicons
@@ -142,7 +156,7 @@ export default function App() {
                   : "sunny"
               }
               size={64}
-              color="white"
+              color="#ffebd3"
             />
             <Text className="text-white text-xl font-semibold mb-4">
               {weather.weather[0].description}

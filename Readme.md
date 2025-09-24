@@ -9,7 +9,7 @@ A simple React Native app built with Expo to fetch current weather data using th
 - Displays a weather icon according to the current conditions.
 - Includes retry if location permission is denied.
 
-## [Download App](https://expo.dev/accounts/dilkhush9060/projects/weather_app/builds/b4776645-f44b-44b4-bfc5-76f6493f85c4)
+## [Download App](https://expo.dev/accounts/dilkhush9060/projects/weather_app/builds/635b7fa6-3395-42fe-8fe7-bc9a80eb2710)
 
 ## Install And Run
 
